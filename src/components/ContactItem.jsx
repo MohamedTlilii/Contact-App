@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
-import { addFav, removeFav, editContact } from "../redux/actions";
+import { addFav, removeFav, editContact, removeContact } from "../redux/actions";
 
 function ContactItem({ fullName, email, avatar, phone, isFav, id }) {
   const dispatch = useDispatch();
@@ -18,10 +18,15 @@ function ContactItem({ fullName, email, avatar, phone, isFav, id }) {
   };
 
   const handleSave = () => {
-    setShow(!show);
+    setShow(false); // Corrected from handleSave(true)
     dispatch(editContact({ id, editedContact }));
   };
-  const handelRemove = () => {};
+
+  const handelRemove = () => {
+dispatch(removeContact(id))
+
+  };
+
   return (
     <div
       className="contact-item"
