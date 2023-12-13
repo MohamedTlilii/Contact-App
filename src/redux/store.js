@@ -1,8 +1,8 @@
 import { createStore } from "redux";
-import rootReducer from "./reducers";
+import contactReducer from "./reducers/contactReducer";
 
 const store = createStore(
-  rootReducer,
+  contactReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
