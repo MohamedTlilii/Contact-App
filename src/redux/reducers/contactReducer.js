@@ -12,6 +12,20 @@ const contactReducer = (state = initialState, action) => {
         ...state,
         contacts: [...state.contacts, { ...payload, id: uuidv4() }],
       };
+    case "ADD_FAV":
+      return {
+        ...state,
+        contacts: state.contacts.map((contact) =>
+          contact.id === payload ? { ...contact, isFav: true } : contact
+        ),
+      };
+      case "REMOVE_FAV":
+        return {
+          ...state,
+          contacts: state.contacts.map((contact) =>
+            contact.id === payload ? { ...contact, isFav: false } : contact
+          ),
+        };
 
     default:
       return state;

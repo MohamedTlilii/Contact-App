@@ -23,7 +23,7 @@
   align-items: center;
   padding: 10px 0px;
   border-radius: 20px;
-  background-color: antiquewhite;
+  /* background-color: rgb(251,244,231); */
 }
 .add-contact-form {
   width: 100%;

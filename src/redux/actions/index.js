@@ -10,3 +10,9 @@ export const addFav =(payload) => {
         payload,
     }
 }
+export const removeFav =(payload) => {
+    return {
+        type:"REMOVE_FAV",
+        payload,
+    }
+}
