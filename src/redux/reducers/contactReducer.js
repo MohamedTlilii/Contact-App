@@ -40,6 +40,7 @@ const contactReducer = (state = initialState, action) => {
             : contact
         ),
       };
+      
 
     default:
       return state;

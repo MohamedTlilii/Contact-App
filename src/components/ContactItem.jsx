@@ -21,14 +21,14 @@ function ContactItem({ fullName, email, avatar, phone, isFav, id }) {
     setShow(!show);
     dispatch(editContact({ id, editedContact }));
   };
-
+  const handelRemove = () => {};
   return (
     <div
       className="contact-item"
       style={
         isFav
           ? {
-              backgroundColor: "#d01919",
+              backgroundColor: "#16ab39",
               color: "white",
             }
           : { backgroundColor: "rgb(251,244,231)" }
@@ -101,7 +101,7 @@ function ContactItem({ fullName, email, avatar, phone, isFav, id }) {
             />
           ) : (
             <Button
-              color="red"
+              color="green"
               content="Fav"
               icon="heart"
               onClick={() => {
@@ -115,6 +115,14 @@ function ContactItem({ fullName, email, avatar, phone, isFav, id }) {
             icon="pencil alternate"
             onClick={() => {
               handleEdit();
+            }}
+          />
+          <Button
+            color="red"
+            content="Remove"
+            icon="trash"
+            onClick={() => {
+              handelRemove();
             }}
           />
         </div>

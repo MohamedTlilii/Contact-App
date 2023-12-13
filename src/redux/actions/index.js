@@ -22,3 +22,9 @@ export const editContact =(payload) => {
         payload,
     }
 }
+export const removeContact = (payload) => {
+    return {
+      type: "REMOVE_CONTACT",
+      payload,
+    };
+  };
