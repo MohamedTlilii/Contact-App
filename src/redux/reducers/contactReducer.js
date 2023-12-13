@@ -34,10 +34,8 @@ const contactReducer = (state = initialState, action) => {
           contact.id === payload.id
             ? {
                 ...contact,
-                fullName: payload.editedContact.fullName,
-                phone: payload.editedContact.phone,
-                avatar: payload.editedContact.avatar,
-                email: payload.editedContact.email,
+                ...payload.editedContact,
+                // backend
               }
             : contact
         ),

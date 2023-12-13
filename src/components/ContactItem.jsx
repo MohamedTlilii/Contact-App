@@ -6,15 +6,22 @@ import { addFav, removeFav, editContact } from "../redux/actions";
 function ContactItem({ fullName, email, avatar, phone, isFav, id }) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
-  const [editedContact, setEditedContact] = useState();
+  const [editedContact, setEditedContact] = useState({
+    fullName,
+    email,
+    avatar,
+    phone,
+  });
 
   const handleEdit = () => {
     setShow(!show);
   };
+
   const handleSave = () => {
     setShow(!show);
     dispatch(editContact({ id, editedContact }));
   };
+
   return (
     <div
       className="contact-item"
@@ -28,20 +35,45 @@ function ContactItem({ fullName, email, avatar, phone, isFav, id }) {
       }
     >
       {show ? (
-        <Form
-          className="form-edit"
-          onChange={(e) => {
-            setEditedContact({
-              ...editedContact,
-              [e.target.name]: e.target.value,
-            });
-          }}
-        >
-          <Form.Input fluid placeholder="Full name" name="fullName" />
-          <Form.Input fluid placeholder="Phone number" name="phone" />
-          <Form.Input fluid placeholder="Email" name="email" />
-          <Form.Input fluid placeholder="Image" name="avatar" />
+        <Form className="form-edit">
+          <Form.Input
+            fluid
+            placeholder="Full name"
+            name="fullName"
+            value={editedContact.fullName}
+            onChange={(e) =>
+              setEditedContact({ ...editedContact, fullName: e.target.value })
+            }
+          />
+          <Form.Input
+            fluid
+            placeholder="Phone number"
+            name="phone"
+            value={editedContact.phone}
+            onChange={(e) =>
+              setEditedContact({ ...editedContact, phone: e.target.value })
+            }
+          />
+          <Form.Input
+            fluid
+            placeholder="Email"
+            name="email"
+            value={editedContact.email}
+            onChange={(e) =>
+              setEditedContact({ ...editedContact, email: e.target.value })
+            }
+          />
+          <Form.Input
+            fluid
+            placeholder="Image"
+            name="avatar"
+            value={editedContact.avatar}
+            onChange={(e) =>
+              setEditedContact({ ...editedContact, avatar: e.target.value })
+            }
+          />
           <div style={{ display: "flex" }}>
+            <Form.Button onClick={handleSave}>Save</Form.Button>
             <Form.Button
               onClick={() => {
                 setShow(false);
