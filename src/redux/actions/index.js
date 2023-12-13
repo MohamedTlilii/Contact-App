@@ -16,3 +16,9 @@ export const removeFav =(payload) => {
         payload,
     }
 }
+export const editContact =(payload) => {
+    return {
+        type:"EDIT_CONTACT",
+        payload,
+    }
+}

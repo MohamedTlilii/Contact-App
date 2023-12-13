@@ -6,6 +6,7 @@ const initialState = {
 
 const contactReducer = (state = initialState, action) => {
   let { type, payload } = action;
+  console.log(payload);
   switch (type) {
     case "ADD_CONTACT":
       return {
@@ -19,13 +20,28 @@ const contactReducer = (state = initialState, action) => {
           contact.id === payload ? { ...contact, isFav: true } : contact
         ),
       };
-      case "REMOVE_FAV":
-        return {
-          ...state,
-          contacts: state.contacts.map((contact) =>
-            contact.id === payload ? { ...contact, isFav: false } : contact
-          ),
-        };
+    case "REMOVE_FAV":
+      return {
+        ...state,
+        contacts: state.contacts.map((contact) =>
+          contact.id === payload ? { ...contact, isFav: false } : contact
+        ),
+      };
+    case "EDIT_CONTACT":
+      return {
+        ...state,
+        contacts: state.contacts.map((contact) =>
+          contact.id === payload.id
+            ? {
+                ...contact,
+                fullName: payload.editedContact.fullName,
+                phone: payload.editedContact.phone,
+                avatar: payload.editedContact.avatar,
+                email: payload.editedContact.email,
+              }
+            : contact
+        ),
+      };
 
     default:
       return state;
