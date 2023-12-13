@@ -5,6 +5,7 @@ export const contacts = [
     phone: "29876352",
     email: "Monta@hotmail.com",
     avatar: "https://cdn-icons-png.flaticon.com/512/180/180677.png",
+    isFav: false,
   },
   {
     id: "2445fa0a-1384-5c04-acde-60df83f066df",
@@ -12,6 +13,7 @@ export const contacts = [
     phone: "23465789",
     email: "Saif@hotmail.com",
     avatar: "https://cdn-icons-png.flaticon.com/512/180/180677.png",
+    isFav: false,
   },
   {
     id: "3fd74d66-bbeb-5f25-80a7-fc6450cf0ee2",
@@ -19,6 +21,7 @@ export const contacts = [
     phone: "29572401",
     email: "Mohamed@hotmail.com",
     avatar: "https://cdn-icons-png.flaticon.com/512/180/180677.png",
+    isFav: false,
   },
   {
     id: "8d8fa9f9-5f2e-543e-9c0c-78aeaf533d37",
@@ -26,6 +29,7 @@ export const contacts = [
     phone: "23098453",
     email: "Emna@hotmail.com",
     avatar: "https://cdn-icons-png.flaticon.com/512/7958/7958220.png",
+    isFav: false,
   },
   {
     id: "77920538-d7e4-500c-9934-62bd537a5f91",
@@ -33,5 +37,6 @@ export const contacts = [
     phone: "96809302",
     email: "Saida@hotmail.com",
     avatar: "https://cdn-icons-png.flaticon.com/512/7958/7958220.png",
+    isFav: false,
   },
 ];
