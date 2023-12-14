@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ContactItem from "./ContactItem";
-import { Form } from "semantic-ui-react";
-import { addContact } from "../redux/actions";
+import { Form, Button } from "semantic-ui-react";
+import { addContact, showFav } from "../redux/actions";
 import { useDispatch } from "react-redux";
 
 function ContactList() {
   const dispatch = useDispatch();
   const [newContact, setNewContact] = useState({});
+  const [showFav, setShowFav] = useState(false);
+  const [showNotFav, setShowNotFav] = useState(false);
   const contacts = useSelector((state) => state.contacts);
   // console.log(contacts)
   return (
@@ -33,10 +35,43 @@ function ContactList() {
           Save
         </Form.Button>
       </Form>
+
+      <div style={{ display: "flex", marginBottom: "70px" }}>
+        <Button
+          onClick={() => {
+            setShowFav(true);
+            setShowNotFav(false);
+          }}
+        >
+          Show Fav
+        </Button>
+        <Button
+          onClick={() => {
+            setShowNotFav(true);
+            setShowFav(false);
+          }}
+        >
+          Show Unlisted
+        </Button>
+        <Button
+          onClick={() => {
+            setShowFav(false);
+            setShowNotFav(false);
+          }}
+        >
+          Show All
+        </Button>
+      </div>
       <div className="contacts">
-        {contacts.map((contact) => (
-          <ContactItem {...contact} key={contact.id} />
-        ))}
+        {contacts
+          .reverse()
+          .fillter((contact) =>
+            showFav ? contact.isFav : showNotFav ? !contact.isFav : contact
+          )
+
+          .map((contact) => (
+            <ContactItem {...contact} key={contact.id} />
+          ))}
       </div>
     </div>
   );

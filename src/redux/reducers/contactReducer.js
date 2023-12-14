@@ -2,6 +2,7 @@ import { contacts } from "../../contacts";
 import { v4 as uuidv4 } from "uuid";
 const initialState = {
   contacts: contacts,
+  
 };
 
 const contactReducer = (state = initialState, action) => {
@@ -44,6 +45,11 @@ const contactReducer = (state = initialState, action) => {
       return {
         ...state,
         contacts: state.contacts.filter((contact) => contact.id !== payload),
+      };
+    case "SHOW_FAV":
+      return {
+        ...state,
+        contacts: state.contacts.filter((contact) => contact.isFav && contact),
       };
 
     default:

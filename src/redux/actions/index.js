@@ -28,3 +28,9 @@ export const removeContact = (payload) => {
       payload,
     };
   };
+export const showFav = () => {
+    return {
+      type: "SHOW_FAV",
+    
+    };
+  };
